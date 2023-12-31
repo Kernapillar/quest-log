@@ -5,7 +5,6 @@ export enum Frequency {
     Monthly = "monthly",
 }
 
-
 export class Quest {
     public progress: { [key: string]: number | boolean};
     public completed: boolean;
@@ -26,12 +25,16 @@ export class Quest {
         }
     }
   
+    updateProgress(key: string, value: number | boolean): void {
+        this.progress[key] = value;
+        this.completeQuest();
+    }
     
 
     completeQuest(): boolean {
         for (let key in this.progress) {
             if (this.progress[key] !== this.requirements[key]) {
-                    return false;
+                return false;
             }
         }
         this.completed = true;

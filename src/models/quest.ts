@@ -13,19 +13,18 @@ export class Quest {
         public id: number,
         public title: string,
         public questText: string,
-        public requirements: { [key: string]: number | boolean },
+        public requirements: { [key: string]: number },
         public reward: Array<any>,
-        public repeatable: boolean = false,
         public frequency: Frequency = Frequency.Once,
     ) {
         this.progress = {};
         this.completed = false;
         for (let key in requirements) {
-            typeof(this.requirements[key]) === 'number' ? this.progress[key] = 0 : this.progress[key] = false;  
+            this.progress[key] = 0;  
         }
     }
   
-    updateProgress(key: string, value: number | boolean): void {
+    updateProgress(key: string, value: number ): void {
         this.progress[key] = value;
         this.completeQuest();
     }

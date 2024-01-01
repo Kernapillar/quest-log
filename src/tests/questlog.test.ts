@@ -12,16 +12,16 @@ describe('QuestLog', () => {
         1, 
         'Test Quest', 
         'This is a test quest', 
-        { 'task1': false, 'task2': 0 }, 
-        ['reward1', 'reward2'], true, 
+        { 'task1': 1, 'task2': 5 }, 
+        ['reward1', 'reward2'],  
         Frequency.Daily);
 
     quest2 = new Quest(
         2, 
         'Test Quest 2', 
         'This is a test quest 2', 
-        { 'task1': false, 'task2': 0 }, 
-        ['reward1', 'reward2'], true, 
+        { 'task1': 1, 'task2': 10 }, 
+        ['reward1', 'reward2'], 
         Frequency.Daily
     );
   });

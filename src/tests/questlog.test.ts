@@ -4,6 +4,7 @@ import { QuestLog } from '../models/questlog'; // adjust the import path as need
 describe('QuestLog', () => {
   let questLog: QuestLog;
   let quest: Quest;
+  let quest2: Quest;
 
   beforeEach(() => {
     questLog = new QuestLog();
@@ -14,6 +15,15 @@ describe('QuestLog', () => {
         { 'task1': false, 'task2': 0 }, 
         ['reward1', 'reward2'], true, 
         Frequency.Daily);
+
+    quest2 = new Quest(
+        2, 
+        'Test Quest 2', 
+        'This is a test quest 2', 
+        { 'task1': false, 'task2': 0 }, 
+        ['reward1', 'reward2'], true, 
+        Frequency.Daily
+    );
   });
 
   test('addQuest', () => {
@@ -35,18 +45,19 @@ describe('QuestLog', () => {
   });
 
   test('moveUp', () => {
-    const quest2 = new Quest(
-        2, 
-        'Test Quest 2', 
-        'This is a test quest 2', 
-        { 'task1': false, 'task2': 0 }, 
-        ['reward1', 'reward2'], true, 
-        Frequency.Daily
-    );
     questLog.addQuest(quest);
     questLog.addQuest(quest2);
     questLog.moveUp(quest2);
     expect(questLog.getQuests()[0]).toBe(quest2);
     expect(questLog.getQuests()[1]).toBe(quest);
   });
+
+  test('moveDown', () => {
+    questLog.addQuest(quest);
+    questLog.addQuest(quest2);
+    questLog.moveDown(quest);
+    expect(questLog.getQuests()[0]).toBe(quest2);
+    expect(questLog.getQuests()[1]).toBe(quest);
+  }); 
+
 });

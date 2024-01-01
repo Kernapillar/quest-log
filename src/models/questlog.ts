@@ -30,6 +30,13 @@ export class QuestLog {
     }
   }
 
+  moveDown(quest: Quest): void {
+    const index = this.quests.indexOf(quest);
+    if (index < this.quests.length - 1) {
+      this.quests.splice(index + 1, 0, this.quests.splice(index, 1)[0]);
+    }
+  }
+
   getQuests(): Array<Quest>  {
     return this.quests;
   }

@@ -1,11 +1,13 @@
 // HomePage.tsx
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import  QuestLogComponent  from '../components/questlog';
+import { seedQuests } from '../utils/seed';
 
 const HomePage = () => {
   return (
     <View>
-      <Text>Welcome to the Home Page!</Text>
+      <QuestLogComponent questLog={seedQuests} />
     </View>
   );
 };

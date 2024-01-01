@@ -59,5 +59,23 @@ describe('QuestLog', () => {
     expect(questLog.getQuests()[0]).toBe(quest2);
     expect(questLog.getQuests()[1]).toBe(quest);
   }); 
+  
+  test('getQuests', () => {
+    questLog.addQuest(quest);
+    questLog.addQuest(quest2);
+    expect(questLog.getQuests()).toEqual([quest, quest2]);
+  });
+
+  test('capacity', () => {  
+    questLog = new QuestLog(1);
+    questLog.addQuest(quest);
+    expect(questLog.addQuest(quest2)).toBe(false);
+  });
+
+  test('atCapacity', () => {    
+    questLog = new QuestLog(1);
+    questLog.addQuest(quest);
+    expect(questLog.atCapacity()).toBe(true);
+  });
 
 });

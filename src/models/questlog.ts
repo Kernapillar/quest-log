@@ -3,16 +3,25 @@ import { Quest } from './quest';
 
 export class QuestLog {
   constructor(
+    public capacity: number = 10,
     public quests: Array<Quest> = [], 
     public completedQuests: Array<Quest> = [],
   ) {}
 
-  addQuest(quest: Quest): void {
+  addQuest(quest: Quest): boolean {
+    if (this.quests.length >= this.capacity) {
+      return false
+    }
     this.quests.push(quest);
+    return true;
   }
 
   removeQuest(quest: Quest): void {
     this.quests.splice(this.quests.indexOf(quest), 1);
+  }
+
+  atCapacity(): boolean {
+    return this.quests.length >= this.capacity;
   }
   
   completeQuest(quest: Quest): void {

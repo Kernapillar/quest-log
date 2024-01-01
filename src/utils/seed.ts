@@ -1,6 +1,7 @@
 import { Quest, Frequency } from '../models/quest';
+import { QuestLog } from '../models/questlog';
 
-export const quests = [
+export const seedQuests = new QuestLog( 10, [
   new Quest(
     1,
     'Get Jamming',
@@ -41,4 +42,4 @@ export const quests = [
     ['Lava Survivor Trophy', 'Improved Agility'],
     Frequency.Once
     ),
-];
+]);

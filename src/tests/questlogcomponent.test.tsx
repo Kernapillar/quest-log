@@ -12,5 +12,10 @@ describe('QuestLogComponent', () => {
 
     // Replace 'Quest 1' with the title of one of your quests
     expect(getByText('Get Jamming')).toBeTruthy();
+    expect(getByText('Shopping list')).toBeTruthy();
+    expect(getByText('Cookie Monster')).toBeTruthy();
+    expect(getByText('Talk Like a Pirate')).toBeTruthy();
+    expect(getByText('The Floor is Lava')).toBeTruthy();
   });
+    
 });

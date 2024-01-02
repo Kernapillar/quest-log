@@ -35,7 +35,7 @@ export const seedQuests = new QuestLog( 10, [
     Frequency.Monthly
     ),
   new Quest(
-    9,
+    5,
     'The Floor is Lava',
     'Spend an entire day without touching the floor inside your house.',
     { 'Survive the day': 1 },

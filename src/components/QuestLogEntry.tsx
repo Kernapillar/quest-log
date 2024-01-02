@@ -20,7 +20,10 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        alignItems: 'center',
+        borderWidth: 1, // Add this line
+        borderColor: 'black', // Add this line
+        borderStyle: 'solid', // Add this line
+        alignItems: 'center', // Move this line here
     },
     questTitle: {
         textAlign: 'center',

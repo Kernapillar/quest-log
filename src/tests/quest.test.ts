@@ -45,5 +45,11 @@ describe('Quest', () => {
     quest.updateProgress('requirement2', 1);
     expect(quest.completeQuest()).toBe(false);
     expect(quest.completed).toBe(false);
-  })
+  });
+
+  test('getProgress', () => {
+    quest.updateProgress('requirement1', 1);
+    quest.updateProgress('requirement2', 1);
+    expect(quest.getProgress('requirement1')).toEqual([['requirement1', 1, 1], ['requirement2', 1, 2]]);
+  });
 });

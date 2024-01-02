@@ -6,7 +6,7 @@ export enum Frequency {
 }
 
 export class Quest {
-    public progress: { [key: string]: number | boolean};
+    public progress: { [key: string]: number};
     public completed: boolean;
     
     constructor(
@@ -27,8 +27,17 @@ export class Quest {
     updateProgress(key: string, value: number ): void {
         this.progress[key] = value;
         this.completeQuest();
+    };
+
+    getProgress(key: string): Array<[string, number, number]> {
+        const progressArray: Array<[string, number, number]> = [];
+        for (let key in this.requirements) {
+            const currentProgress: number = this.progress[key];
+            const totalRequirement: number = this.requirements[key];
+            progressArray.push([key, currentProgress, totalRequirement]);
+        }
+        return progressArray;
     }
-    
 
     completeQuest(): boolean {
         for (let key in this.progress) {

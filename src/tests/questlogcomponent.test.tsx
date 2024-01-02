@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
-import QuestLogComponent from '../components/questlogcomponent';
-import { seedQuests } from '../utils/seed';
+import QuestLogComponent from '../components/QuestLogIndex';
+import { seedQuests } from '../utils/Seed';
 
 describe('QuestLogComponent', () => {
   it('renders correctly', () => {

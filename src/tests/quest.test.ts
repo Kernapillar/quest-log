@@ -1,5 +1,5 @@
 
-import { Quest, Frequency } from '../models/quest';
+import { Quest, Frequency } from '../models/Quest';
 
 describe('Quest', () => {
   let quest: Quest;

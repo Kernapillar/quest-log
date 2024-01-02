@@ -1,5 +1,5 @@
-import { Quest, Frequency } from '../models/quest';
-import { QuestLog } from '../models/questlog';
+import { Quest, Frequency } from '../models/Quest';
+import { QuestLog } from '../models/QuestLog';
 
 export const seedQuests = new QuestLog( 10, [
   new Quest(

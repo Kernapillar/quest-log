@@ -1,6 +1,7 @@
 import React from 'react';
 import { FlatList, Text, StyleSheet } from 'react-native';
-import { QuestLog } from '../models/questlog';
+import { QuestLog } from '../models/QuestLog';
+import QuestLogEntry from './QuestLogEntry';
 
 interface QuestLogProps {
   questLog: QuestLog;
@@ -11,7 +12,7 @@ const QuestLogComponent: React.FC<QuestLogProps> = ({ questLog }) => {
     <FlatList
         data={questLog.getQuests()}
         keyExtractor={(item, index) => index.toString()}
-        renderItem={({ item: quest }) => <Text style={styles.questTitle}>{quest.title}</Text>}
+        renderItem={({ item: quest }) => <QuestLogEntry quest={quest}/>}
     />
   );
 };

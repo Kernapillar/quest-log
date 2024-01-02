@@ -1,8 +1,8 @@
 // HomePage.tsx
 import React from 'react';
 import { View } from 'react-native';
-import  QuestLogComponent  from '../components/questlogcomponent';
-import { seedQuests } from '../utils/seed';
+import  QuestLogComponent  from '../components/QuestLogIndex';
+import { seedQuests } from '../utils/Seed';
 
 const HomePage = () => {
   return (

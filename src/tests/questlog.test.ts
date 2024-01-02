@@ -1,5 +1,5 @@
-import { Quest, Frequency } from '../models/quest'; // adjust the import path as needed
-import { QuestLog } from '../models/questlog'; // adjust the import path as needed
+import { Quest, Frequency } from '../models/Quest'; // adjust the import path as needed
+import { QuestLog } from '../models/QuestLog'; // adjust the import path as needed
 
 describe('QuestLog', () => {
   let questLog: QuestLog;

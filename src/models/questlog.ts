@@ -1,4 +1,4 @@
-import { Quest } from './quest';
+import { Quest } from './Quest';
 
 
 export class QuestLog {

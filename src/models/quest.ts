@@ -29,7 +29,7 @@ export class Quest {
         this.completeQuest();
     };
 
-    getProgress(key: string): Array<[string, number, number]> {
+    getProgress(): Array<[string, number, number]> {
         const progressArray: Array<[string, number, number]> = [];
         for (let key in this.requirements) {
             const currentProgress: number = this.progress[key];

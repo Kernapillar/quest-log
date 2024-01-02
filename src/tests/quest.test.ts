@@ -50,6 +50,6 @@ describe('Quest', () => {
   test('getProgress', () => {
     quest.updateProgress('requirement1', 1);
     quest.updateProgress('requirement2', 1);
-    expect(quest.getProgress('requirement1')).toEqual([['requirement1', 1, 1], ['requirement2', 1, 2]]);
+    expect(quest.getProgress()).toEqual([['requirement1', 1, 1], ['requirement2', 1, 2]]);
   });
 });

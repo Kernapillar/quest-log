@@ -7,33 +7,40 @@ interface QuestLogEntryProps {
 }
 
 const QuestLogEntry: React.FC<QuestLogEntryProps> = ({quest}) => {
+
+    const requirementsArr: Array<[string, number, number]> = quest.getProgress();
+
     return (
         <View style={styles.container}>
             <Text style={styles.questTitle}>{quest.title}</Text>
-            <Text style={styles.questDescription}>{quest.questText}</Text>
+            {requirementsArr.map((requirement, index) => {
+                return (
+                    
+                    <Text style={styles.questRequirements} key={index}> {requirement[0]} {requirement[1].toString()}/{requirement[2].toString()}</Text>
+                )
+            })}
         </View>
     );
-
 };
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        borderWidth: 1, // Add this line
-        borderColor: 'black', // Add this line
-        borderStyle: 'solid', // Add this line
-        alignItems: 'center', // Move this line here
+        borderWidth: 1, 
+        borderColor: 'grey', 
+        borderStyle: 'solid', 
+        
     },
     questTitle: {
         textAlign: 'center',
-        height: 80,
+        height: 40,
         fontSize: 20,
         fontWeight: 'bold',
     },
-    questDescription: {
-        textAlign: 'center',
-        height: 80,
+    questRequirements: {
+        textAlign: 'right',
+        marginRight: 20,
         fontSize: 20,
     },
 });

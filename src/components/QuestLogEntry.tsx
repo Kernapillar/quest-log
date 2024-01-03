@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Quest } from "../models/Quest";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 interface QuestLogEntryProps {
     quest: Quest;
@@ -14,10 +15,30 @@ const QuestLogEntry: React.FC<QuestLogEntryProps> = ({quest}) => {
         <View style={styles.container}>
             <Text style={styles.questTitle}>{quest.title}</Text>
             {requirementsArr.map((requirement, index) => {
-                return (
-                    
-                    <Text style={styles.questRequirements} key={index}> {requirement[0]} {requirement[1].toString()}/{requirement[2].toString()}</Text>
-                )
+                if (requirement[1] === requirement[2]) {
+                    return (
+                        <>
+                            <Text style={styles.questRequirements} key={index}> {requirement[0]} {requirement[1].toString()}/{requirement[2].toString()}
+                                <Icon name="check" size={20} color="green" />
+                            </Text>            
+                        </>
+                    )
+                } else if (requirement[2] === 1) {
+                    return (
+                        <>
+                            <Text style={styles.questRequirements} key={index}> {requirement[0]} {"   "}
+                                <Icon name="square-o" size={20} color="black" />
+                            </Text>            
+                        </>
+                    )
+                } else {
+                    return (
+                        <>
+                            <Text style={styles.questRequirements} key={index}> {requirement[0]} {requirement[1].toString()}/{requirement[2].toString()}</Text>
+                            
+                        </>
+                    )
+                }
             })}
         </View>
     );
